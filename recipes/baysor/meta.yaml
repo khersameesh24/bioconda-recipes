@@ -1,0 +1,46 @@
+{% set name = "baysor" %}
+{% set version = "0.6.2" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  path: .
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - julia ==1.9.0
+  host:
+    - python
+    - pip
+  run:
+    - python
+  pip:
+    - jupyterlab
+    - numpy ==2.0.0
+    - scipy ==1.14.0
+    - matplotlib ==3.9.0
+    - seaborn ==0.13.2
+    - pandas ==2.2.2
+    - scikit-learn ==1.5.0
+    - scikit-image ==0.24.0
+    - six ==1.12.0
+
+test:
+  commands:
+    - baysor --help
+
+about:
+  home: https://github.com/kharchenkolab/Baysor
+  license: MIT
+  license_family: MIT
+  license_url: https://github.com/kharchenkolab/Baysor/blob/master/LICENSE
+  summary: Bayesian Segmentation of Spatial Transcriptomics Data
+
+extra:
+  recipe-maintainers:
+    - khersameesh24
